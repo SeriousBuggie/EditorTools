@@ -1,0 +1,93 @@
+-=[ Description ]=-
+
+Different tools for UnrealEditor 2.0/2.2.
+
+1. Align Camera on Selected Actor.
+2. FaceDrag Mode.
+3. 8 buttons for fast switch between Mover Key positions.
+4. SkyBox1000Stars - make skybox with star sprites.
+5. Distance - for measure distance.
+6. EditActor - set some property to some value or show EditActor window. Similar to "Actor properties" window, but always stay on initial actor. Also contain category (Null/None) for vars without category.
+7. Extruder - build brush which follow path defined by ClipMarkers.
+8. BrushToCamera - Move builder Brush to first selected actor or in front of first Camera.
+9. SearchActors - Search for Actors by different criteria. Allow search Event and Tags in custom fields, search by substring, by any property name, without case, filter world by search, search in search results, in specified class and so on.
+10. RotateActor - Rotate selected actors to specified amount over one of axis.
+	
+-=[ Usage SkyBox1000Stars ]=-
+
+1. Substract anywhere cube brush with size at least 600*600*600.
+2. At center it place SkyZoneInfo actor.
+3. Press SkyBox1000Stars button on UnrealEd panel.
+
+If you need some tune, you can right click on SkyBox1000Stars button on UnrealEd panel.
+
+-=[ Usage Distance ]=-
+
+1. Switch to Brush Clipping mode. Use Ctrl+RMB for add two markers. You can drag it with Ctrl+LMB.
+2. Press Distance button on UnrealEd panel.
+
+Or select two actor and press Distance button.
+Or select one actor (second will be nearest Camera actor) and press Distance button.
+
+Info duplicated in log, so you can copy numbers from it.
+
+-=[ Usage EditActor ]=-
+
+For show EditActor window:
+0. Ensure "SetProperty" field is an empty. If not - press Reset on builder options dialog.
+1. Select 1 actor. 
+2. Press EditActor button on UnrealEd panel.
+
+For edit values:
+1. Select 1 or more actors. 
+2. Click RMB on EditActor Button.
+3. Input property name, value and press Build for set it.
+
+-=[ Usage Extruder ]=-
+
+1. Switch to Brush Clipping mode. Use Ctrl+RMB for add markers. You can drag it with Ctrl+LMB. Ctrl+Alt+LMB - allow make selection shape. 
+Also you can switch to Camera mode and work with ClipMarkers as usual Actors.
+But when you save level all ClipMarkers will be deleted.
+2. Make shape of ClipMakers. Last one drag to first one.
+3. Add next ClipMaker as pivot point inside shape. All of this ClipMaker must be coplanar.
+4. Add next ClipMaker as first point of extrude path. Usually it perpendicular shape plane.
+5. Go on. Add ClipMakers for all points of path.
+6. Press Extruder button on UnrealEd panel.
+
+-=[ Usage SearchActors ]=-
+
+1. Click RMB on SearchActors Button.
+2. Input search parameters and press Build.
+3. Use Log window for copy names of found actors, for find it via embeded search in UnrealEd.
+
+-=[ Install ]=-
+
+Copy System folder to UT folder.
+
+In UnrealTournament.ini add in section
+[Editor.EditorEngine]
+EditPackages=EditorTools
+
+In UnrealEd.ini add or edit section:
+[UserDefinedGroup]
+NumButtons=10
+Button0=Align Camera on Selected Actor,AlignCam,CAMERA ALIGN
+Button1=FaceDrag Mode,ModeFaceDrag,MODE FACEDRAG
+Button2=Mover Key 0(Base),Key0,Actor KEYFRAME NUM=0
+Button3=Mover Key 1,Key1,Actor KEYFRAME NUM=1
+Button4=Mover Key 2,Key2,Actor KEYFRAME NUM=2
+Button5=Mover Key 3,Key3,Actor KEYFRAME NUM=3
+Button6=Mover Key 4,Key4,Actor KEYFRAME NUM=4
+Button7=Mover Key 5,Key5,Actor KEYFRAME NUM=5
+Button8=Mover Key 6,Key6,Actor KEYFRAME NUM=6
+Button9=Mover Key 7,Key7,Actor KEYFRAME NUM=7
+
+-=[ Credits ]=-
+
+Higor (https://github.com/CacoFFF):
+	EditActor.bmp
+	Idea Distance tool
+	Idea EditActor tool
+	
+Tarquin (tarquin@planetunreal.com):
+	Extruder.bmp
